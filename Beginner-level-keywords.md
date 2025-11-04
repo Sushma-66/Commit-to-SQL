@@ -1,5 +1,9 @@
 BEGINNER SQL KEYWORDS LIST
+
+
 1. Data Selection ( what to show)
+
+
 | Keyword    | Meaning                                     | Example                                |
 | ---------- | ------------------------------------------- | -------------------------------------- |
 | `SELECT`   | Choose which columns or data to display     | `SELECT name, age`                     |
@@ -8,6 +12,8 @@ BEGINNER SQL KEYWORDS LIST
 | `AS`       | Rename a column or table (alias)            | `SELECT name AS employee_name`         |
 
 2. Filtering Data (which rows to show)
+
+
 | Keyword / Operator | Meaning                                      | Example                                        |
 | ------------------ | -------------------------------------------- | ---------------------------------------------- |
 | `WHERE`            | Add a condition/filter                       | `WHERE age > 30`                               |
@@ -30,6 +36,8 @@ BEGINNER SQL KEYWORDS LIST
 | `<=`               | Less than or equal to                        | `WHERE age <= 60`                              |
 
 3. Sorting Data (Order of Output)
+
+
 | Keyword    | Meaning                          | Example                |
 | ---------- | -------------------------------- | ---------------------- |
 | `ORDER BY` | Sort rows by one or more columns | `ORDER BY salary DESC` |

@@ -2,7 +2,7 @@
 
 Welcome! This repo is all about **my adventure learning SQL**.
 
-After countless videos, courses, and exercises, I realized most ways of learning SQL are **tricky, confusing, and overwhelming** — especially for beginners who, like me, aren’t big fans of numbers or math.
+After countless videos, courses, and exercises, I realized most ways of learning SQL are **tricky, confusing, and overwhelming** — especially for beginners who, like me, aren’t big fans of math.
 
 I struggled with SQL for a long time. HackerRank challenges and online courses left me **confused and frustrated**. Something always felt missing. So, I decided to create **my own fun, easy, and clear way to learn SQL**.
 

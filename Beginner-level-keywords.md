@@ -37,12 +37,16 @@ BEGINNER SQL KEYWORDS LIST
 | `DESC`     | Descending order                 | `ORDER BY salary DESC` |
 
 4. Limiting Data
+
+
 | Keyword | Meaning                                   | Example                          |
 | ------- | ----------------------------------------- | -------------------------------- |
 | `LIMIT` | Show only first N rows (MySQL/PostgreSQL) | `LIMIT 5`                        |
 | `TOP`   | Show first N rows (SQL Server)            | `SELECT TOP 5 * FROM employees;` |
 
 5. Simple Data Operations
+
+
 | Keyword / Operator | Meaning            | Example                                               |
 | ------------------ | ------------------ | ----------------------------------------------------- |
 | `*`                | Select all columns | `SELECT * FROM students;`                             |

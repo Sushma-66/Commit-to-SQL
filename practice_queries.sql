@@ -18,4 +18,18 @@ WHERE salary > 50,000;
 
 --LEVEL 2 — Adding Order and Multiple Conditions
 
+--Q4.List all students (show name and score) from students table where score is more than 80, and show them in descending order of score.
+
+SELECT name,score
+FROM students
+Where score > 80
+ORDER BY score DESC;
+
+--Q5.Show names of employees who work in the Sales department and have a salary greater than 60,000.
+
+SELECT name
+FROM employees
+WHERE department = 'sales'
+and salary >60,000;
+
 

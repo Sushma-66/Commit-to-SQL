@@ -98,6 +98,15 @@ FROM Customers AS c
 LEFT JOIN Orders AS o
   ON c.customer_id = o.customer_id;
 
+--RIGHT JOIN 
+
+--11. Show all orders and their customers, even if a customer record is missing
+
+SELECT o.order_id, c.name
+FROM Customers AS c
+RIGHT JOIN Orders AS o
+  ON c.customer_id = o.customer_id;
+
 
 
 

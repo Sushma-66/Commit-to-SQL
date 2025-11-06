@@ -37,6 +37,12 @@ FROM Customers AS c
 JOIN Orders AS o
   ON c.customer_id = o.customer_id;
 
+--3. Show order IDs along with the customer’s city
+
+SELECT o.order_id, c.city
+FROM Orders AS o
+JOIN Customers AS c
+  ON o.customer_id = c.customer_id;
 
 
 

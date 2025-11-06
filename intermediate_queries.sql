@@ -74,6 +74,15 @@ FROM Customers AS c
 LEFT JOIN Orders AS o
   ON c.customer_id = o.customer_id;
 
+--8.Show all products and the customers who bought them (if any)
+
+SELECT p.product_name, c.name
+FROM Products AS p
+LEFT JOIN Orders AS o
+  ON p.product_name = o.product
+LEFT JOIN Customers AS c
+  ON o.customer_id = c.customer_id;
+--
 
 
 

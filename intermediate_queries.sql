@@ -67,6 +67,13 @@ FROM Customers AS c
 LEFT JOIN Orders AS o
   ON c.customer_id = o.customer_id;
 
+--7. Show all customers and their order amounts; if they haven’t ordered, show NULL
+
+SELECT c.name, o.amount
+FROM Customers AS c
+LEFT JOIN Orders AS o
+  ON c.customer_id = o.customer_id;
+
 
 
 

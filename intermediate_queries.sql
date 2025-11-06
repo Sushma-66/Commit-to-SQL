@@ -30,6 +30,14 @@ FROM Customers AS c
 INNER JOIN Orders AS o
   ON c.customer_id = o.customer_id;
 
+--2. Show customer names and the products they ordered
+
+SELECT c.name, o.product
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id;
+
+
 
 
 

@@ -45,5 +45,11 @@ JOIN Customers AS c
   ON o.customer_id = c.customer_id;
 
 
+--List all orders and include both customer name and order amount
+
+SELECT o.order_id, c.name, o.amount
+FROM Orders AS o
+JOIN Customers AS c
+  ON o.customer_id = c.customer_id;
 
 

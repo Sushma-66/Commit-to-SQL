@@ -82,7 +82,15 @@ LEFT JOIN Orders AS o
   ON p.product_name = o.product
 LEFT JOIN Customers AS c
   ON o.customer_id = c.customer_id;
---
+
+--9.Show each customer and the number of orders they placed
+
+SELECT c.name, COUNT(o.order_id) AS total_orders
+FROM Customers AS c
+LEFT JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+GROUP BY c.name;
+
 
 
 

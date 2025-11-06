@@ -91,6 +91,13 @@ LEFT JOIN Orders AS o
   ON c.customer_id = o.customer_id
 GROUP BY c.name;
 
+--10.Show all customers and cities, along with order details if they have any
+
+SELECT c.name, c.city, o.product, o.amount
+FROM Customers AS c
+LEFT JOIN Orders AS o
+  ON c.customer_id = o.customer_id;
+
 
 
 

@@ -116,6 +116,13 @@ RIGHT JOIN Products AS p
 LEFT JOIN Customers AS c
   ON o.customer_id = c.customer_id;
 
+--FULL OUTER JOIN
 
+-- 13. List all customers and all orders — show matches where they exist and NULLs otherwise
+
+SELECT c.name, o.order_id
+FROM Customers AS c
+FULL OUTER JOIN Orders AS o
+  ON c.customer_id = o.customer_id;
 
 

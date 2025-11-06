@@ -107,6 +107,14 @@ FROM Customers AS c
 RIGHT JOIN Orders AS o
   ON c.customer_id = o.customer_id;
 
+--12.Show all products and corresponding order information, even if no one ordered that product
+
+SELECT p.product_name, o.order_id, c.name
+FROM Orders AS o
+RIGHT JOIN Products AS p
+  ON p.product_name = o.product
+LEFT JOIN Customers AS c
+  ON o.customer_id = c.customer_id;
 
 
 

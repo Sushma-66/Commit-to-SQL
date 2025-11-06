@@ -22,3 +22,14 @@
 --| 2          | Phone        | 800   |
 --| 3          | Headphones   | 150   |
 
+--INNER JOINS 
+-- 1. Show all customer names and their order IDs
+
+SELECT c.name, o.order_id
+FROM Customers AS c
+INNER JOIN Orders AS o
+  ON c.customer_id = o.customer_id;
+
+
+
+

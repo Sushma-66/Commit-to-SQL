@@ -45,11 +45,19 @@ JOIN Customers AS c
   ON o.customer_id = c.customer_id;
 
 
---List all orders and include both customer name and order amount
+--4. List all orders and include both customer name and order amount
 
 SELECT o.order_id, c.name, o.amount
 FROM Orders AS o
 JOIN Customers AS c
   ON o.customer_id = c.customer_id;
+
+--5. Show each customer’s name and product ordered, only for those who have placed orders
+
+SELECT c.name, o.product
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id;
+
 
 

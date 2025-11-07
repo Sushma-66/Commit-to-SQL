@@ -170,6 +170,13 @@ JOIN Orders AS o
   ON c.customer_id = o.customer_id
 GROUP BY c.name;
 
+--5. List all customers and how many distinct products they’ve ordered.
+SELECT c.name, COUNT(DISTINCT o.product) AS num_products
+FROM Customers AS c
+LEFT JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+GROUP BY c.name;
+
 
 
 

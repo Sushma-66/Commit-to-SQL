@@ -155,5 +155,14 @@ JOIN Orders AS o
 GROUP BY c.name
 HAVING SUM(o.amount) > 1000;
 
+--3. Show each city’s total sales amount.
+
+SELECT c.city, SUM(o.amount) AS total_sales
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+GROUP BY c.city;
+
+
 
 

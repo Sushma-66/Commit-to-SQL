@@ -184,6 +184,15 @@ LEFT JOIN Orders AS o
   ON c.customer_id = o.customer_id
 WHERE o.order_id IS NULL;
 
+--7. Show products that have never been ordered.
+
+SELECT p.product_name
+FROM Products AS p
+LEFT JOIN Orders AS o
+  ON p.product_name = o.product
+WHERE o.order_id IS NULL;
+
+
 
 
 

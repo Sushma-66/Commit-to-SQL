@@ -234,6 +234,11 @@ JOIN Orders AS o
   ON c.customer_id = o.customer_id
 GROUP BY e.emp_name, e.city;
 
+--13.Show customers who live in the same city as any employee
+SELECT DISTINCT c.name, c.city
+FROM Customers AS c
+INNER JOIN Employees AS e
+  ON c.city = e.city;
 
 
 

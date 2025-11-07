@@ -146,6 +146,14 @@ JOIN Orders AS o
   ON c.customer_id = o.customer_id
 GROUP BY c.name;
 
+--2. Show customers who spent more than 1000 total.
+
+SELECT c.name, SUM(o.amount) AS total_spent
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+GROUP BY c.name
+HAVING SUM(o.amount) > 1000;
 
 
 

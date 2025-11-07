@@ -1,5 +1,7 @@
 --JOINS 
 
+--beginner level in joins 
+
 --customer's table                             
 --| customer_id | name  | city     |
 --| ----------- | ----- | -------- |
@@ -133,5 +135,8 @@ FULL OUTER JOIN Orders AS o
   ON c.customer_id = o.customer_id
 FULL OUTER JOIN Products AS p
   ON o.product = p.product_name;
+
+--INTERMEDIATE LEVEL IN JOINS 
+
 
 

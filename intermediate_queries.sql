@@ -163,6 +163,14 @@ JOIN Orders AS o
   ON c.customer_id = o.customer_id
 GROUP BY c.city;
 
+--4. Show customers and their most expensive order.
+SELECT c.name, MAX(o.amount) AS highest_order
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+GROUP BY c.name;
+
+
 
 
 

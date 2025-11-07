@@ -192,6 +192,14 @@ LEFT JOIN Orders AS o
   ON p.product_name = o.product
 WHERE o.order_id IS NULL;
 
+--8.Show customers and their total order count, including those with zero orders.
+
+SELECT c.name, COUNT(o.order_id) AS total_orders
+FROM Customers AS c
+LEFT JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+GROUP BY c.name;
+
 
 
 

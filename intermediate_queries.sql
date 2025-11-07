@@ -225,6 +225,15 @@ LEFT JOIN Orders AS o
   ON p.product_name = o.product
 GROUP BY p.product_name;
 
+--12.Show each employee’s city and total sales in their city.
+SELECT e.emp_name, e.city, SUM(o.amount) AS city_sales
+FROM Employees AS e
+JOIN Customers AS c
+  ON e.city = c.city
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+GROUP BY e.emp_name, e.city;
+
 
 
 

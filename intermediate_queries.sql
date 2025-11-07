@@ -138,5 +138,14 @@ FULL OUTER JOIN Products AS p
 
 --INTERMEDIATE LEVEL IN JOINS 
 
+--1. Find each customer’s total amount spent (use SUM + GROUP BY).
+
+SELECT c.name, SUM(o.amount) AS total_spent
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+GROUP BY c.name;
+
+
 
 

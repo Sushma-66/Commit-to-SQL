@@ -125,4 +125,13 @@ FROM Customers AS c
 FULL OUTER JOIN Orders AS o
   ON c.customer_id = o.customer_id;
 
+️--14 Show all customers and all products — include customers with no orders and products never bought
+
+SELECT c.name, p.product_name
+FROM Customers AS c
+FULL OUTER JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+FULL OUTER JOIN Products AS p
+  ON o.product = p.product_name;
+
 

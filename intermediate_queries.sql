@@ -177,6 +177,14 @@ LEFT JOIN Orders AS o
   ON c.customer_id = o.customer_id
 GROUP BY c.name;
 
+--6. Show customers who have never ordered anything.
+SELECT c.name
+FROM Customers AS c
+LEFT JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+WHERE o.order_id IS NULL;
+
+
 
 
 

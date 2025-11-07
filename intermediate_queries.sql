@@ -208,6 +208,16 @@ JOIN Orders AS o
   ON c.customer_id = o.customer_id
 GROUP BY c.name;
 
+--10.Find customers who ordered both a Laptop and a Phone.
+
+SELECT c.name
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+WHERE o.product IN ('Laptop', 'Phone')
+GROUP BY c.name
+HAVING COUNT(DISTINCT o.product) = 2;
+
 
 
 

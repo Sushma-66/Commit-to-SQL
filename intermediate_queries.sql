@@ -200,7 +200,13 @@ LEFT JOIN Orders AS o
   ON c.customer_id = o.customer_id
 GROUP BY c.name;
 
+--9.Find the average order amount per customer.
 
+SELECT c.name, AVG(o.amount) AS avg_order_value
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+GROUP BY c.name;
 
 
 

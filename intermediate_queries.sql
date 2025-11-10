@@ -136,7 +136,7 @@ FULL OUTER JOIN Orders AS o
 FULL OUTER JOIN Products AS p
   ON o.product = p.product_name;
 
---INTERMEDIATE LEVEL IN JOINS 
+--INTERMEDIATE LEVEL IN JOINS QUESTIONS 
 
 --1. Find each customer’s total amount spent (use SUM + GROUP BY).
 

@@ -240,6 +240,8 @@ FROM Customers AS c
 INNER JOIN Employees AS e
   ON c.city = e.city;
 
+--JOINS INTERMEDIATE LEVEL 
+
 
 
 

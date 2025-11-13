@@ -245,6 +245,20 @@ INNER JOIN Employees AS e
 -- Q1: Find all customers who purchased items from more than one distinct
 -- product category. Return customer name and number of categories.
 
+SELECT 
+    c.customer_id,
+    c.name AS customer_name,
+    COUNT(DISTINCT p.category) AS category_count
+FROM Customers c
+JOIN Orders o 
+    ON c.customer_id = o.customer_id
+JOIN OrderItems oi 
+    ON o.order_id = oi.order_id
+JOIN Products p 
+    ON oi.product_id = p.product_id
+GROUP BY c.customer_id, c.name
+HAVING COUNT(DISTINCT p.category) > 1;
+
 
 
 

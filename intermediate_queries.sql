@@ -259,6 +259,27 @@ JOIN Products p
 GROUP BY c.customer_id, c.name
 HAVING COUNT(DISTINCT p.category) > 1;
 
+-- Q2: List employees whose salary is greater than the average salary 
+-- of their department. Return employee name, dept name, salary, and dept avg salary.
+
+SELECT 
+    e.emp_id,
+    e.name AS employee_name,
+    d.dept_name,
+    e.salary,
+    dept_stats.avg_salary AS dept_avg_salary
+FROM Employees e
+JOIN Departments d 
+    ON e.dept_id = d.dept_id
+JOIN (
+    SELECT 
+        dept_id,
+        AVG(salary) AS avg_salary
+    FROM Employees
+    GROUP BY dept_id
+) AS dept_stats 
+    ON e.dept_id = dept_stats.dept_id
+WHERE e.salary > dept_stats.avg_salary;
 
 
 

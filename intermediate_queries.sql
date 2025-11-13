@@ -282,6 +282,18 @@ JOIN (
 WHERE e.salary > dept_stats.avg_salary;
 
 
+-- Q3: Return all flights that have never been booked.
+
+SELECT 
+    f.flight_id,
+    f.flight_number,
+    f.origin,
+    f.destination
+FROM Flights f
+LEFT JOIN Bookings b 
+    ON f.flight_id = b.flight_id
+WHERE b.booking_id IS NULL;
+
 
 
 

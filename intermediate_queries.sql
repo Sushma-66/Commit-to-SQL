@@ -242,6 +242,10 @@ INNER JOIN Employees AS e
 
 --JOINS INTERMEDIATE LEVEL 
 
+-- Q1: Find all customers who purchased items from more than one distinct
+-- product category. Return customer name and number of categories.
+
+
 
 
 

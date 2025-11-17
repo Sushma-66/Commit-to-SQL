@@ -1,0 +1,29 @@
+# SQL Pattern: Conditional Aggregation
+
+## Overview
+Conditional aggregation is a powerful SQL technique that lets you calculate
+different summaries within the same `GROUP BY` by using `CASE` expressions
+inside aggregate functions. It is commonly used for reporting, dashboards,
+and data analysis.
+
+## Example Table
+orders(
+  id INT,
+  customer_id INT,
+  status VARCHAR,
+  amount DECIMAL
+)
+
+## Query Example
+```sql
+SELECT
+    customer_id,
+    COUNT(*) AS total_orders,
+    SUM(CASE WHEN status = 'completed' THEN 1 ELSE 0 END) AS completed_orders,
+    SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) AS pending_orders,
+    SUM(CASE WHEN status = 'cancelled' THEN 1 ELSE 0 END) AS cancelled_orders,
+    SUM(amount) AS total_amount,
+    SUM(CASE WHEN status = 'completed' THEN amount END) AS completed_amount
+FROM orders
+GROUP BY customer_id
+ORDER BY customer_id;

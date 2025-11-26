@@ -45,4 +45,36 @@ FROM customers c
 JOIN orders o
   ON c.customer_id = o.customer_id;
 
+--CATEGORY 2 — MULTI-CONDITION JOINS
+
+--Q4. Join orders and customers only if city is NYC.
+  
+SELECT c.customer_name, o.order_id
+FROM customers c
+JOIN orders o
+  ON c.customer_id = o.customer_id
+ AND c.city = 'NYC';
+
+--Q5. Match only orders above $150 made by NYC customers.
+
+SELECT c.customer_name, o.order_id
+FROM customers c
+JOIN orders o
+  ON c.customer_id = o.customer_id 
+ AND o.amount > 150 
+ AND c.city = 'NYC';
+
+--Q6. Join with date + customer_id multiple conditions.
+
+
+SELECT o.order_id, c.customer_name
+FROM orders o
+JOIN customers c
+  ON o.customer_id = c.customer_id
+ AND o.order_date > '2023-01-01';
+
+
+
+
+
 

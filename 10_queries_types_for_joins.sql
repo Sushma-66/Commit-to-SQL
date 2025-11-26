@@ -73,6 +73,34 @@ JOIN customers c
   ON o.customer_id = c.customer_id
  AND o.order_date > '2023-01-01';
 
+--CATEGORY 3 — FILTER BEFORE vs AFTER JOIN
+
+--Q7. Find customers who ordered in 2023.
+
+SELECT c.customer_name, o.order_id
+FROM customers c
+JOIN orders o
+  ON c.customer_id = o.customer_id
+WHERE o.order_date >= '2023-01-01';
+
+--Q8. Get customers from NYC with all their orders.
+
+SELECT c.customer_name, o.order_id
+FROM customers c
+JOIN orders o
+  ON c.customer_id = o.customer_id
+WHERE c.city = 'NYC';
+
+--Q9. Get orders above $150 (filter after join).
+
+SELECT c.customer_name, o.amount
+FROM customers c
+JOIN orders o
+  ON c.customer_id = o.customer_id
+WHERE o.amount > 150;
+
+
+
 
 
 

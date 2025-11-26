@@ -99,6 +99,34 @@ JOIN orders o
   ON c.customer_id = o.customer_id
 WHERE o.amount > 150;
 
+--CATEGORY 4 — INNER JOIN + AGGREGATION
+
+--Q10. Total amount spent by each customer.
+
+SELECT c.customer_name, SUM(o.amount) AS total_spend
+FROM customers c
+JOIN orders o
+  ON c.customer_id = o.customer_id
+GROUP BY c.customer_name;
+
+--Q11. Number of orders per customer.
+
+SELECT c.customer_name, COUNT(o.order_id) AS num_orders
+FROM customers c
+JOIN orders o
+  ON c.customer_id = o.customer_id
+GROUP BY c.customer_name;
+
+--Q12. Average order amount by city.
+
+SELECT c.city, AVG(o.amount) AS avg_amount
+FROM customers c
+JOIN orders o
+  ON c.customer_id = o.customer_id
+GROUP BY c.city;
+
+
+
 
 
 

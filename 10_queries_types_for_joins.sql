@@ -139,6 +139,23 @@ SELECT r.*
 FROM ranked r
 WHERE rn = 1;
 
+--Q14. Rank all orders for each customer.
+
+SELECT o.*, 
+       RANK() OVER (PARTITION BY customer_id ORDER BY amount DESC) AS rank_amount
+FROM orders o;
+
+--CATEGORY 6 — MULTI-TABLE JOINS (3–4 TABLES)
+
+--Q16. Get customer, order, product name.
+
+SELECT c.customer_name, o.order_id, p.product_name
+FROM customers c
+JOIN orders o ON c.customer_id = o.customer_id
+JOIN order_items oi ON o.order_id = oi.order_id
+JOIN products p ON oi.product_id = p.product_id;
+
+
 
 
 

@@ -1,3 +1,4 @@
+
 --customers
 --| customer_id | customer_name | city |
 --| ----------- | ------------- | ---- |
@@ -124,6 +125,19 @@ FROM customers c
 JOIN orders o
   ON c.customer_id = o.customer_id
 GROUP BY c.city;
+
+--CATEGORY 5 — JOIN + WINDOW FUNCTIONS
+
+--Q13. Get each customer’s latest order.
+
+WITH ranked AS (
+  SELECT o.*, 
+         ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date DESC) AS rn
+  FROM orders o
+)
+SELECT r.*
+FROM ranked r
+WHERE rn = 1;
 
 
 

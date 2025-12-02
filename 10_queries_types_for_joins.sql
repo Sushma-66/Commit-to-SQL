@@ -155,6 +155,15 @@ JOIN orders o ON c.customer_id = o.customer_id
 JOIN order_items oi ON o.order_id = oi.order_id
 JOIN products p ON oi.product_id = p.product_id;
 
+--Q17. Total quantity each customer bought.
+
+SELECT c.customer_name, SUM(oi.qty) AS total_qty
+FROM customers c
+JOIN orders o ON c.customer_id = o.customer_id
+JOIN order_items oi ON o.order_id = oi.order_id
+GROUP BY c.customer_name;
+
+
 
 
 

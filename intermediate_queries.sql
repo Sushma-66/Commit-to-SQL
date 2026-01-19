@@ -294,6 +294,43 @@ LEFT JOIN Bookings b
     ON f.flight_id = b.flight_id
 WHERE b.booking_id IS NULL;
 
+-----
+
+--1. Sales & City Matching
+
+--From the following tables write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city.
+
+--Sample table: salesman
+
+ salesman_id |    name    |   city   | commission 
+-------------+------------+----------+------------
+        5001 | James Hoog | New York |       0.15
+        5002 | Nail Knite | Paris    |       0.13
+        5005 | Pit Alex   | London   |       0.11
+        5006 | Mc Lyon    | Paris    |       0.14
+        5007 | Paul Adam  | Rome     |       0.13
+        5003 | Lauson Hen | San Jose |       0.12
+Sample table: customer
+
+ customer_id |   cust_name    |    city    | grade | salesman_id 
+-------------+----------------+------------+-------+-------------
+        3002 | Nick Rimando   | New York   |   100 |        5001
+        3007 | Brad Davis     | New York   |   200 |        5001
+        3005 | Graham Zusi    | California |   200 |        5002
+        3008 | Julian Green   | London     |   300 |        5002
+        3004 | Fabian Johnson | Paris      |   300 |        5006
+        3009 | Geoff Cameron  | Berlin     |   100 |        5003
+        3003 | Jozy Altidor   | Moscow     |   200 |        5007
+        3001 | Brad Guzan     | London     |       |        5005
 
 
+solution: 
+-- This query selects specific columns ('salesman.name' with alias "Salesman", 'customer.cust_name', and 'customer.city') 
+-- from the 'salesman' and 'customer' tables.
+-- It retrieves data where the 'city' column in the 'salesman' table matches the 'city' column in the 'customer' table.
+SELECT salesman.name AS "Salesman", customer.cust_name, customer.city
+-- Specifies the tables from which to retrieve the data (in this case, 'salesman' and 'customer').
+FROM salesman, customer
+-- Specifies the condition for joining the tables and filtering the data.
+WHERE salesman.city = customer.city;
 

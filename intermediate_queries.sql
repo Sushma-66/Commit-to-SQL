@@ -376,7 +376,8 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
         5007 | Paul Adam  | Rome     |       0.13
         5003 | Lauson Hen | San Jose |       0.12
 
-solution:
+
+  question 3-- solution:
 -- Selecting all columns from the result of natural joins between three tables: 'orders', 'customer', and 'salesman'
 SELECT * 
 -- Performing a natural join between 'orders' and 'customer' tables
@@ -384,4 +385,43 @@ FROM orders
 NATURAL JOIN customer  
 -- Performing another natural join with the result of the previous join and the 'salesman' table
 NATURAL JOIN salesman;
+
+WITH debit_totals AS (
+    SELECT
+        c.customer_id,
+        c.customer_name,
+        a.account_id,
+        SUM(t.amount) AS total_debit
+    FROM customers c
+    JOIN accounts a
+        ON c.customer_id = a.customer_id
+    JOIN transactions t
+        ON a.account_id = t.account_id
+    WHERE
+        c.country = 'UK'
+        AND t.transaction_type = 'debit'
+    GROUP BY
+        c.customer_id,
+        c.customer_name,
+        a.account_id
+),
+qualified_customers AS (
+    SELECT
+        customer_id
+    FROM accounts
+    GROUP BY customer_id
+    HAVING COUNT(account_id) > 1
+)
+SELECT
+    d.customer_name,
+    d.account_id,
+    d.total_debit,
+    RANK() OVER (
+        PARTITION BY d.customer_id
+        ORDER BY d.total_debit DESC
+    ) AS account_rank
+FROM debit_totals d
+JOIN qualified_customers q
+    ON d.customer_id = q.customer_id
+WHERE d.total_debit > 2000;
 

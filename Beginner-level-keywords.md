@@ -52,7 +52,7 @@ BEGINNER SQL KEYWORDS LIST
 | `LIMIT` | Show only first N rows (MySQL/PostgreSQL) | `LIMIT 5`                        |
 | `TOP`   | Show first N rows (SQL Server)            | `SELECT TOP 5 * FROM employees;` |
 
-5. Simple Data Operations
+5. Simple Data Operation
 
 
 | Keyword / Operator | Meaning            | Example                                               |

@@ -19,3 +19,17 @@ SELECT
     total_spent
 FROM customer_totals
 WHERE total_spent > 80;
+
+--3. WITH dept_avg_salary AS (
+    SELECT 
+        department,
+        AVG(salary) AS avg_salary
+    FROM Employees
+    GROUP BY department
+)
+
+SELECT 
+    department,
+    avg_salary
+FROM dept_avg_salary
+WHERE avg_salary > 60000;

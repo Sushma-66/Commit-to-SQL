@@ -46,3 +46,12 @@ WHERE total_sales > (
     SELECT AVG(total_sales)
     FROM product_totals
 );
+--4
+WITH it_employees AS (
+    SELECT name, salary
+    FROM employees
+    WHERE department = 'IT'
+)
+
+SELECT name, salary
+FROM it_employees;

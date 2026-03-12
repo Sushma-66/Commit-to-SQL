@@ -55,3 +55,16 @@ WITH it_employees AS (
 
 SELECT name, salary
 FROM it_employees;
+WITH RECURSIVE emp_hierarchy AS (
+    SELECT emp_id, name, manager_id
+    FROM employees
+    WHERE manager_id IS NULL
+
+    UNION ALL
+
+    SELECT e.emp_id, e.name, e.manager_id
+    FROM employees e
+    JOIN emp_hierarchy h
+    ON e.manager_id = h.emp_id
+)
+SELECT * FROM emp_hierarchy;

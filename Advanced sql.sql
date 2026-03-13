@@ -53,7 +53,8 @@ WITH it_employees AS (
     WHERE department = 'IT'
 )
 
-SELECT name, salary
+--5
+    SELECT name, salary
 FROM it_employees;
 WITH RECURSIVE emp_hierarchy AS (
     SELECT emp_id, name, manager_id
@@ -68,3 +69,15 @@ WITH RECURSIVE emp_hierarchy AS (
     ON e.manager_id = h.emp_id
 )
 SELECT * FROM emp_hierarchy;
+--6 
+WITH dept_avg AS (
+    SELECT department, AVG(salary) AS avg_salary
+    FROM employees
+    GROUP BY department
+)
+
+SELECT e.name, e.department, e.salary
+FROM employees e
+JOIN dept_avg d
+ON e.department = d.department
+WHERE e.salary > d.avg_salary;

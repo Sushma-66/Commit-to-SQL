@@ -33,3 +33,20 @@ SELECT
     avg_salary
 FROM dept_avg_salary
 WHERE avg_salary > 60000;
+
+--4employees(emp_id, name, dept_id, salary, manager_id)
+--departments(dept_id, dept_name)
+--Find every department where all employees earn more than the company-wide average salary. Return dept_name. A department with zero employees should not be returned.
+SELECT d.dept_name
+FROM departments d
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM employees e
+    WHERE e.dept_id = d.dept_id
+      AND e.salary <= (SELECT AVG(salary) FROM employees)
+)
+AND EXISTS (
+    SELECT 1
+    FROM employees e2
+    WHERE e2.dept_id = d.dept_id
+);
